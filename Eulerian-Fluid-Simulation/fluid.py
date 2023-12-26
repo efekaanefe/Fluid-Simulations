@@ -30,7 +30,7 @@ class Fluid:
         for iter in range(numIters):
             for i in range(1, self.numX - 1):
                 for j in range(1, self.numY - 1):
-                    if self.s[i * n + j] == 0.0:
+                    if self.s[i * n + j] == 0.0 :
                         continue
 
                     s = self.s[i * n + j]
