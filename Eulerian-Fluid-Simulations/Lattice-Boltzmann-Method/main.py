@@ -91,7 +91,7 @@ if __name__=="__main__":
 			plt.pause(0.01)
 			plt.cla()
 
-			## plot velocities
+			## plot momentum
 			# plt.imshow(np.sqrt(ux**2 + uy**2))
 			# plt.pause(0.01)
 			# plt.cla()
