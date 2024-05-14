@@ -24,8 +24,6 @@ if __name__=="__main__":
 	F[:,:, 5] = 3 # makes the flow field move to the right 
 
 	obstacle_field = np.ones((Ny, Nx)) #  0 -> obstacle and 1 -> empty space
-	plt.imshow(obstacle_field)
-	plt.show()
 	
 	def create_circular_obstacle(obstacle_field, center_position = None, radius = None):
 		Ny, Nx = obstacle_field.shape
@@ -44,8 +42,18 @@ if __name__=="__main__":
 
 	mask = create_circular_obstacle(obstacle_field, (Nx * 0.8 ,Ny/2), 50)
 	obstacle_field[~mask] = 0
-	plt.imshow(obstacle_field)
-	plt.show()
+	# plt.imshow(obstacle_field)
+	# plt.show()
+
+	# main loop
+	for t_i in range(Nt): # time
+
+		for direction in range(num_directions):
+			for x_vel, y_vel in discrete_velocities[direction]:
+				F[:,:,direction] =  np.roll(F[:,:,direction], x_vel, axis=1)
+				F[:,:,direction] =  np.roll(F[:,:,direction], y_vel, axis=0)
+				
+
 
 
 
